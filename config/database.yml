@@ -6,8 +6,8 @@ default: &default
 development:
   <<: *default
   database: recipe_finder_development
-  username: <%= Rails.application.credentials.development[:postgres_user] %>
-  password: <%= Rails.application.credentials.development[:postgres_password] %>
+  username: <%= Rails.application.credentials.development&.dig(:postgres_user) %>
+  password: <%= Rails.application.credentials.development&.dig(:postgres_password) %>
 
 test:
   <<: *default
@@ -18,5 +18,5 @@ test:
 production:
   <<: *default
   database: recipe_finder_production
-  username: <%= Rails.application.credentials.production[:postgres_user] %>
-  password: <%= Rails.application.credentials.production[:postgres_password] %>
+  username: <%= Rails.application.credentials.production&.dig(:postgres_user) %>
+  password: <%= Rails.application.credentials.production&.dig(:postgres_password) %>
