@@ -18,4 +18,4 @@ test:
 production:
   <<: *default
   database: recipe_finder_production
-  url: <%= Rails.application.credentials.production&.dig(:postgres_url) %>
+  url: <%= ENV.fetch("DATABASE_URL") { 'postgres://gmyztntwobtote:e6b3e5949b293e85207b490e683143b1e5701054c518e9646bd3cdc6c69b6ebf@ec2-107-21-67-46.compute-1.amazonaws.com:5432/d4ooep2tq4sjoo' } %>
