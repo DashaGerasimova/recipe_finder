@@ -18,5 +18,4 @@ test:
 production:
   <<: *default
   database: recipe_finder_production
-  username: <%= Rails.application.credentials.production&.dig(:postgres_user) %>
-  password: <%= Rails.application.credentials.production&.dig(:postgres_password) %>
+  url: <%= Rails.application.credentials.production&.dig(:postgres_url) %>
